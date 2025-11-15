@@ -1,0 +1,19 @@
+brew install rtmidi rtaudio
+
+
+cd /Volumes/MIDAS/breathe
+g++ -std=gnu++17 midi.cpp -o midimon \
+  -I/opt/homebrew/include -L/opt/homebrew/lib -lrtmidi \
+  -framework CoreMIDI -framework CoreAudio -framework CoreFoundation
+
+./midimon
+
+
+
+cd /Users/jianwei/Downloads/breathe-v1-main
+
+g++ -std=gnu++17 main.cpp -o triangle_piano \
+  -I/opt/homebrew/include -L/opt/homebrew/lib \
+  -lrtmidi \
+  -framework CoreAudio -framework CoreMIDI -framework CoreFoundation
+./triangle_piano
